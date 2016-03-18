@@ -35,8 +35,8 @@ define([
                             // Because the ID space is so large it's extremely unlikely that we'll have a conflict.
                             var traceID = getNewTraceId();
                             log("Generating new trace ID: " + traceID + " for host: " + channel.originalURI.host + " (original URL: " + channel.URI.spec + ")");
-                            // Flags=1 says "debug this request"
-                            channel.setRequestHeader("X-B3-Flags", "1", false);
+                            // Sampled=1 says "debug this request"
+                            channel.setRequestHeader("X-B3-Sampled", "1", false);
                             // The trace ID will only stick if TraceId == SpanId.
                             channel.setRequestHeader("X-B3-TraceId", traceID, false);
                             channel.setRequestHeader("X-B3-SpanId", traceID, false);
